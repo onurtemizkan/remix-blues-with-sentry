@@ -17,7 +17,7 @@ import {
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
 
-import { ErrorBoundary, withSentryRouteTracing } from "@sentry/remix";
+import { ErrorBoundary, /*withSentryRouteTracing */} from "@sentry/remix";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
@@ -43,7 +43,7 @@ export const loader: LoaderFunction = async ({ request }) => {
   });
 };
 
-function App() {
+export default function App() {
   const { GLOBALS } = useLoaderData() as LoaderData;
 
   return (
@@ -70,4 +70,4 @@ function App() {
   );
 }
 
-export default withSentryRouteTracing(App);
+// export default withSentryRouteTracing(App);
