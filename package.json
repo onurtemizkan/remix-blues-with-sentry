@@ -3,9 +3,10 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
+    "upload": "sentry-upload-sourcemaps",
     "build": "run-s build:*",
     "build:css": "npm run generate:css -- --minify",
-    "build:remix": "remix build",
+    "build:remix": "remix build --sourcemap",
     "build:server": "esbuild --platform=node --format=cjs ./server.ts --outdir=build",
     "dev": "run-p dev:*",
     "dev:server": "cross-env NODE_ENV=development node --inspect --require ./node_modules/dotenv/config --require ./mocks ./build/server.js",
@@ -45,7 +46,7 @@
     "morgan": "^1.10.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "@sentry/remix": "link:@sentry/remix",
+    "@sentry/remix": "^7.5.0",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {

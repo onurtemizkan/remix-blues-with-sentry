@@ -47,9 +47,6 @@ export default function NewNotePage() {
     } else if (actionData?.errors?.body) {
       bodyRef.current?.focus();
     }
-
-    // Test Client Side Errors
-    throw new Error("Error _ Client _ useEffect");
   }, [actionData]);
 
   return (
@@ -63,6 +60,11 @@ export default function NewNotePage() {
       }}
     >
       <div>
+        <button type="button" onClick={() => {
+          throw new Error("Sentry Client Error");
+        }}>
+          Throw error
+        </button>
         <label className="flex w-full flex-col gap-1">
           <span>Title: </span>
           <input

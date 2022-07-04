@@ -9,7 +9,7 @@ Sentry.init({
   dsn: process.env.SENTRY_DSN,
   tracesSampleRate: 1,
   integrations: [new Sentry.Integrations.Prisma({ client: prisma })],
-  release: "0.0.0",
+  release: "0.0.1",
 });
 
 export default function handleRequest(

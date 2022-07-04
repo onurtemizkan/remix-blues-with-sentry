@@ -15,7 +15,7 @@ Sentry.init({
             ),
         }),
     ],
-    release: "0.0.0"
+    release: "0.0.1"
 });
 
 declare global {
