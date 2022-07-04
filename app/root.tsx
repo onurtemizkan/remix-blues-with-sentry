@@ -17,7 +17,7 @@ import {
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
 
-import { ErrorBoundary, /*withSentryRouteTracing */} from "@sentry/remix";
+// import { ErrorBoundary, /*withSentryRouteTracing */} from "@sentry/remix";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
@@ -47,26 +47,24 @@ export default function App() {
   const { GLOBALS } = useLoaderData() as LoaderData;
 
   return (
-    <ErrorBoundary>
-      <html lang="en" className="h-full">
-        <head>
-          <Meta />
-          <Links />
-        </head>
-        <body className="h-full">
-          <Outlet />
-          <ScrollRestoration />
-          <script
-            suppressHydrationWarning
-            dangerouslySetInnerHTML={{
-              __html: `window.GLOBALS=${GLOBALS};`,
-            }}
-          />
-          <Scripts />
-          <LiveReload />
-        </body>
-      </html>
-    </ErrorBoundary>
+    <html lang="en" className="h-full">
+      <head>
+        <Meta />
+        <Links />
+      </head>
+      <body className="h-full">
+        <Outlet />
+        <ScrollRestoration />
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: `window.GLOBALS=${GLOBALS};`,
+          }}
+        />
+        <Scripts />
+        <LiveReload />
+      </body>
+    </html>
   );
 }
 
